@@ -14,8 +14,42 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
+      home: HomePage(),
     );
   }
 }
 
+class HomePage extends StatelessWidget {
+  const HomePage({Key key}) : super(key: key);
 
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Modal"),
+        centerTitle: true,
+      ),
+      body: Container(
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              RaisedButton(
+                onPressed: () {},
+                child: Text("Simple Dialog Modal"),
+              ),
+              RaisedButton(
+                onPressed: () {},
+                child: Text("Bottom Modal"),
+              ),
+              RaisedButton(
+                onPressed: () {},
+                child: Text("Full Screen Modal"),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}

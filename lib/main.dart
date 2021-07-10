@@ -47,7 +47,9 @@ class HomePage extends StatelessWidget {
                 child: Text("Bottom Modal"),
               ),
               RaisedButton(
-                onPressed: () {},
+                onPressed: () {
+                  _showFullModal(context);
+                },
                 child: Text("Full Screen Modal"),
               ),
             ],
@@ -96,6 +98,7 @@ class HomePage extends StatelessWidget {
   _showBottomModal(context) {
     return showModalBottomSheet(
       context: context,
+      elevation: 12,
       backgroundColor: Colors.transparent,
       builder: (builder) {
         return new Container(
@@ -182,6 +185,73 @@ class HomePage extends StatelessWidget {
                       ),
                     ],
                   ),
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
+
+  _showFullModal(context) {
+    showGeneralDialog(
+      context: context,
+      barrierDismissible: false,
+      barrierLabel: "Modal",
+      transitionDuration: Duration(milliseconds: 500),
+      pageBuilder: (_, __, ___) {
+        return Scaffold(
+          appBar: AppBar(
+            backgroundColor: Colors.white,
+            centerTitle: true,
+            leading: IconButton(
+              icon: Icon(
+                Icons.close,
+                color: Colors.black,
+              ),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+            ),
+            title: Text(
+              "Modal",
+              style: TextStyle(
+                color: Colors.black,
+                fontFamily: "Overpass",
+                fontSize: 20,
+              ),
+            ),
+            elevation: 0,
+          ),
+          backgroundColor: Colors.white,
+          body: Container(
+            padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
+            decoration: BoxDecoration(
+              border: Border(
+                top: BorderSide(
+                  color: Color(0xfff8f8f8),
+                  width: 1,
+                ),
+              ),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                RichText(
+                  textAlign: TextAlign.justify,
+                  text: TextSpan(
+                    text: "Full Screen Modal",
+                    style: TextStyle(
+                      fontWeight: FontWeight.w400,
+                      fontSize: 14,
+                      color: Colors.black,
+                      wordSpacing: 1,
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 10,
                 ),
               ],
             ),

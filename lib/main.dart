@@ -98,23 +98,26 @@ class HomePage extends StatelessWidget {
   _showBottomModal(context) {
     return showModalBottomSheet(
       context: context,
-      elevation: 12,
       backgroundColor: Colors.transparent,
+      isDismissible: false,
       builder: (builder) {
         return new Container(
           color: Colors.transparent,
+          constraints: BoxConstraints(
+            maxHeight: MediaQuery.of(context).size.height / 3,
+          ),
           child: new Container(
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(10.0),
-                topRight: Radius.circular(10.0),
+                topLeft: Radius.circular(20.0),
+                topRight: Radius.circular(20.0),
               ),
               boxShadow: [
                 BoxShadow(
-                  color: Colors.black12,
+                  color: Colors.black26,
                   blurRadius: 10.0,
-                  spreadRadius: 0.0,
+                  spreadRadius: 10.0,
                 ),
               ],
             ),

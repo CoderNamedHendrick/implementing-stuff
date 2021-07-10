@@ -35,7 +35,9 @@ class HomePage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               RaisedButton(
-                onPressed: () {},
+                onPressed: () {
+                  _showSimpleModalDialog(context);
+                },
                 child: Text("Simple Dialog Modal"),
               ),
               RaisedButton(
@@ -50,6 +52,42 @@ class HomePage extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+
+  _showSimpleModalDialog(context) {
+    return showDialog(
+      context: context,
+      builder: (context) {
+        return Dialog(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20.0),
+          ),
+          child: Container(
+            constraints: BoxConstraints(maxHeight: 350),
+            child: Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  RichText(
+                    textAlign: TextAlign.justify,
+                    text: TextSpan(
+                      text: "My first simple Modal",
+                      style: TextStyle(
+                        fontWeight: FontWeight.w500,
+                        fontSize: 16,
+                        color: Colors.black,
+                        wordSpacing: 2,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        );
+      },
     );
   }
 }

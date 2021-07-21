@@ -49,7 +49,7 @@ class GlassMorphism extends StatelessWidget {
             width: _width * 0.9,
             height: _height * 0.3,
             borderRadius: 15,
-            blur: 15,
+            blur: 30,
             alignment: Alignment.center,
             border: 2,
             linearGradient: LinearGradient(
@@ -60,6 +60,10 @@ class GlassMorphism extends StatelessWidget {
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
             ),
+            borderGradient: LinearGradient(colors: [
+              Colors.white24.withOpacity(0.2),
+              Colors.white70.withOpacity(0.2),
+            ]),
             child: Container(
               decoration: BoxDecoration(
                 boxShadow: [

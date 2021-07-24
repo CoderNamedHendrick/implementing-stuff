@@ -65,7 +65,7 @@ final User miranda = User(
   imageUrl: 'assets/images/miranda.jpg',
 );
 
-List<User> favourites = [olivia, greg, miranda, steve, sophie];
+List<User> favourites = [olivia, greg, miranda, steve, sophie, chris];
 
 // Example Chats on home screen
 List<Message> chats = [

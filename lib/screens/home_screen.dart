@@ -1,13 +1,42 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_chat_ui/widgets/category_selector.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({Key key}) : super(key: key);
 
   @override
+  _HomeScreenState createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Text('Project Start'),
+      appBar: AppBar(
+        leading: IconButton(
+          icon: Icon(Icons.menu),
+          iconSize: 30.0,
+          color: Colors.white,
+          onPressed: () {},
+        ),
+        title: Text(
+          'Chats',
+          style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+        ),
+        elevation: 0.0,
+        actions: [
+          IconButton(
+            icon: Icon(Icons.search),
+            onPressed: () {},
+            iconSize: 30.0,
+            color: Colors.white,
+          ),
+        ],
+      ),
+      body: Column(
+        children: [
+          CategorySelector(),
+        ],
       ),
     );
   }

@@ -93,7 +93,7 @@ List<Message> chats = [
   Message(
     sender: greg,
     time: '9:00 PM',
-    text: 'I think I pushed the wrong codebase to the repository, please check',
+    text: 'I pushed the wrong codebase to the repository',
     isLiked: false,
     unread: false,
   ),

@@ -119,3 +119,55 @@ List<Message> chats = [
     unread: true,
   ),
 ];
+
+List<Message> messages = [
+  Message(
+    sender: currentUser,
+    time: '5:20 PM',
+    text: 'Hey, you up?',
+    isLiked: false,
+    unread: true,
+  ),
+  Message(
+    sender: steve,
+    time: '5:22 PM',
+    text: 'Yeah, why?',
+    isLiked: false,
+    unread: false,
+  ),
+  Message(
+    sender: currentUser,
+    time: '7:00 PM',
+    text: 'Wanna hang out tonight bro',
+    isLiked: false,
+    unread: true,
+  ),
+  Message(
+    sender: steve,
+    time: '9:00 PM',
+    text: 'Naa, I have to some I have to get done before I sleeep',
+    isLiked: true,
+    unread: false,
+  ),
+  Message(
+    sender: steve,
+    time: '9:01 PM',
+    text: 'Can I come over whenever I am done?',
+    isLiked: true,
+    unread: true,
+  ),
+  Message(
+    sender: currentUser,
+    time: '1:15 AM',
+    text: 'I feel asleep, wanna hang today though',
+    isLiked: false,
+    unread: false,
+  ),
+  Message(
+    sender: steve,
+    time: '8:00 AM',
+    text: 'I\'m seeing the game today, can\'t make it.',
+    isLiked: true,
+    unread: true,
+  ),
+];

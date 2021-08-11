@@ -33,7 +33,12 @@ class _LogoAppState extends State<LogoApp> with SingleTickerProviderStateMixin {
   }
 
   @override
-  Widget build(BuildContext context) => AnimatedLogo(animation: animation);
+  Widget build(BuildContext context) {
+    return GrowTransition(
+      child: const LogoWidget(),
+      animation: animation,
+    );
+  }
 
   @override
   void dispose() {
@@ -42,22 +47,60 @@ class _LogoAppState extends State<LogoApp> with SingleTickerProviderStateMixin {
   }
 }
 
-class AnimatedLogo extends AnimatedWidget {
-  const AnimatedLogo({
-    Key key,
-    @required Animation<double> animation,
-  }) : super(key: key, listenable: animation);
+// class AnimatedLogo extends AnimatedWidget {
+//   const AnimatedLogo({
+//     Key key,
+//     @required Animation<double> animation,
+//   }) : super(key: key, listenable: animation);
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     final animation = listenable as Animation<double>;
+//     return Center(
+//       child: Container(
+//         margin: const EdgeInsets.symmetric(vertical: 10),
+//         height: animation.value,
+//         width: animation.value,
+//         child: const FlutterLogo(),
+//       ),
+//     );
+//   }
+// }
+
+class GrowTransition extends StatelessWidget {
+  const GrowTransition(
+      {Key key, @required this.child, @required this.animation})
+      : super(key: key);
+
+  final Widget child;
+  final Animation<double> animation;
 
   @override
   Widget build(BuildContext context) {
-    final animation = listenable as Animation<double>;
     return Center(
-      child: Container(
-        margin: const EdgeInsets.symmetric(vertical: 10),
-        height: animation.value,
-        width: animation.value,
-        child: const FlutterLogo(),
+      child: AnimatedBuilder(
+        animation: animation,
+        builder: (context, child) {
+          return SizedBox(
+            height: animation.value,
+            width: animation.value,
+            child: child,
+          );
+        },
+        child: child,
       ),
+    );
+  }
+}
+
+class LogoWidget extends StatelessWidget {
+  const LogoWidget({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.symmetric(vertical: 10),
+      child: const FlutterLogo(),
     );
   }
 }

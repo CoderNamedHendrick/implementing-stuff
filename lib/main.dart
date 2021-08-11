@@ -24,7 +24,7 @@ class _LogoAppState extends State<LogoApp> with SingleTickerProviderStateMixin {
       ..addListener(() {
         setState(() {});
       });
-    controller.forward();
+    controller.forward().then((value) => controller.reverse());
   }
 
   @override
